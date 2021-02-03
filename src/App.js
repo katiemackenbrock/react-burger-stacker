@@ -1,26 +1,60 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Ingredients from './Ingredients';
+import IngredientList from './IngredientList';
+import BurgerPane from './BurgerPane';
+import ClearBurger from './ClearBurger';
 
-const ingredients = [
-  {name: 'Kaiser Bun', color: 'saddlebrown'},
-  {name: 'Sesame Bun', color: 'sandybrown'},
-  {name: 'Gluten Free Bun', color: 'peru'},
-  {name: 'Lettuce Wrap', color: 'olivedrab'},
-  {name: 'Beef Patty', color: '#3F250B'},
-  {name: 'Soy Patty', color: '#3F250B'},
-  {name: 'Black Bean Patty', color: '#3F250B'},
-  {name: 'Chicken Patty', color: 'burlywood'},
-  {name: 'Lettuce', color: 'lawngreen'},
-  {name: 'Tomato', color: 'tomato'},
-  {name: 'Bacon', color: 'maroon'},
-  {name: 'Onion', color: 'lightyellow'}
-]
 
 class App extends Component {
+  constructor(props) {
+    super()
+
+    this.state = {
+      ingredientArray: [],
+      newIngredient: '',
+      userBurger: []
+    }
+  }
+
+  addIngredient = (e) => {
+    e.preventDefault()
+
+    let tempIngredient = this.state.ingredientArray
+    tempIngredient.push(this.state.newIngredient)
+
+    this.setState({
+      ingredientArray: tempIngredient,
+      newIngredient: ''
+    })
+  }
+
+  updateIngredient = (e) => {
+    this.setState({newIngredient: e.target.value})
+  }
+
+  clearBurger = (e) => {
+    e.preventDefault()
+    console.log('clear?')
+
+    this.setState({
+      ingredientArray: []
+    })
+  }
+
   render() {
     return (
-
+      <div className="App">
+        <h1>Ingredients</h1>
+          <IngredientList />
+        <div className="appBurgerPane">
+          <BurgerPane userBurger={this.state.userBurger} />
+        </div>
+        <button className="addBtn" type="submit" onClick={(e) => this.addIngredient(e)}>Add Ingredient</button>
+        <div className="appClear">
+          <ClearBurger clearBurger={this.clearBurger} />
+        </div>
+      </div>
     )
   }
 }

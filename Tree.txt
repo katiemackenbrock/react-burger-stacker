@@ -1,13 +1,11 @@
 --IngredientList
   --Ingredients
-    --Name
-    --Color
 
 --BurgerPane
   --BurgerStack
-    --Ingredients  
-        --Name 
-        --Color
+    --Ingredients
+  --ClearBurger
+
 
 
 // components to make
@@ -15,6 +13,7 @@
 // Ingredients.js
 // BurgerPane.js
 // BurgerStack.js
+// ClearBurger.js
 
 // Ingredients will be passed through BurgerStack which will be passed into BurgerPane
 // Ingredients will also be passed through IngredientList
