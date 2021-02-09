@@ -7,7 +7,6 @@ const ingredients = [
     {name: 'Lettuce Wrap', color: 'olivedrab'},
     {name: 'Beef Patty', color: '#3F250B'},
     {name: 'Soy Patty', color: '#3F250B'},
-    {name: 'Tide Pod', color: '#3336FF'},
     {name: 'Black Bean Patty', color: '#3F250B'},
     {name: 'Chicken Patty', color: 'burlywood'},
     {name: 'Lettuce', color: 'lawngreen'},
@@ -16,19 +15,19 @@ const ingredients = [
     {name: 'Onion', color: 'lightyellow'}
 ]
 
-const allIngredients = ingredients.map((ingredient, index) => {
-    return (
-        <div>
-            <p key={index}>{ingredient.name}</p>
-        </div>
-    )
-})
-console.log(allIngredients);
 
-function Ingredients() {
+function Ingredients(props) {
+    const allIngredients = ingredients.map((ingredient, index) => {
+        return (
+            <div key={index}>
+                <p>{ingredient.name}</p>
+                <button onClick={() => props.addIngredient(ingredient)}>add to burger</button>
+            </div>
+        )
+    })
+
     return (
         <div>
-            <p>Ingredient</p>
             {allIngredients}
         </div>
     )

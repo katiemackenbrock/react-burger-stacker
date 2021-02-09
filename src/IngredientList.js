@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import Ingredients from './Ingredients';
 
 
-function IngredientList() {
+function IngredientList(props) {
     return (
         <div className="panes">
             <h3>Ingredients</h3>
             <ul className="ingredient-list">
-            <Ingredients />
+            <Ingredients addIngredient={props.addIngredient} />
             </ul>
         </div>
     )

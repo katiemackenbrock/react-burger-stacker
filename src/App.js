@@ -12,13 +12,16 @@ function App() {
   const [newIngredient, setNewIngredient] = useState('')
 
 
-  const addIngredient = (e) => {
-    e.preventDefault()
+  const addIngredient = (ingredient) => {
+    // e.preventDefault()
+    setUserBurger(userBurger.concat(ingredient))
 
-    let tempIngredient = ingredientArray
-    tempIngredient.push(newIngredient)
-    setIngredientArray(tempIngredient)
-    setNewIngredient('')
+    // setUserBurger([...userBurger, ingredient])
+    // setNewIngredient([...newIngredient, ingredientArray])
+    // let tempIngredient = ingredientArray
+    // tempIngredient.push(newIngredient)
+    // setIngredientArray(tempIngredient)
+    // setNewIngredient('')
   }
 
   const updateIngredient = (e) => {
@@ -38,13 +41,13 @@ function App() {
           <h1>Burger Stacker</h1>
         </div>
         <div className="pane">
-          <IngredientList />
+          <IngredientList addIngredient={addIngredient}/>
         <div className="appBurgerPane">
           {/* remove this.state */}
           <BurgerPane userBurger={userBurger} />
         </div>
         </div>
-        <button className="addBtn" type="submit" onClick={(e) => addIngredient(e)}>Add Ingredient</button>
+        {/* <button className="addBtn" type="submit" onClick={(e) => addIngredient(e)}>Add Ingredient</button> */}
         <div className="appClear">
           <ClearBurger clearBurger={clearBurger} />
         </div>
