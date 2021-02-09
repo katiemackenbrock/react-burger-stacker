@@ -24,14 +24,25 @@ const allIngredients = ingredients.map((ingredient, index) => {
     )
 })
 console.log(allIngredients);
-class Ingredients extends Component {
-    render() {
-        return (
-            <div>
-                {allIngredients}
-            </div>
-        )
-    }
+
+function Ingredients() {
+    return (
+        <div>
+            <p>Ingredient</p>
+            {allIngredients}
+        </div>
+    )
 }
+
+// class Ingredients extends Component {
+//     render() {
+//         return (
+//             <div>
+//                 <p>Ingredient</p>
+//                 {allIngredients}
+//             </div>
+//         )
+//     }
+// }
 
 export default Ingredients;
